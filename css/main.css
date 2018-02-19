@@ -1,0 +1,8 @@
+body {
+    background-color: lightslategray;
+}
+
+#stage {
+    image-rendering: pixelated;
+    border: 8px solid lightgreen;
+}
