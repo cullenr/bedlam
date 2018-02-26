@@ -1,4 +1,3 @@
-
 export class Point {
     constructor(x, y) {
         this.x = x || 0;
@@ -11,9 +10,6 @@ export class Rect extends Point {
         super(x, y);
         this.w = w || 0;
         this.h = h || 0;
-    },
-    get area() {
-        return this.w * this.h;
     }
 }
 
@@ -44,7 +40,6 @@ export class TileSet {
 
         this.size = tilesAcross * tilesDown;
 
-
         this.tiles = new Array(this.size)
             .fill()
             .map((e, i) => {
@@ -52,14 +47,14 @@ export class TileSet {
                 const y = Math.floor(i / tilesAcross) * tileHeight;  
                 const s = new Sprite(image, x, y, tileWidth, tileHeight);
 
-                return Object.freeze(s);
+                return s;
             });
     }
 };
 
 export class TileMap extends Array {
-    constructor(w, ...rest) {
-        super(rest);
+    constructor(w, map) {
+        super(...map);
         this.w = w;
     }
 }
